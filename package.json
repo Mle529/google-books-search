@@ -1,7 +1,7 @@
 {
   "name": "google-books-search",
   "version": "1.0.0",
-  "description": "Google Books Search",
+  "description": "This app allows the user to search for books using the Google Books API and save them for future reference. Basic book data is displayed along with a link for further information.",
   "main": "server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
@@ -12,16 +12,22 @@
     "build": "cd client && npm run build",
     "heroku-postbuild": "npm run build"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mle529/google-books-search.git"
+  },
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+  "bugs": {
+    "url": "https://github.com/Mle529/google-books-search/issues"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "dotenv": "^8.2.0",
-    "express": "^4.16.3",
+    "express": "^4.17.1",
     "if-env": "^1.0.4",
-    "mongoose": "^5.9.9"
-  }
+    "mongoose": "^5.9.9",
+    "path": "^0.12.7"
+  },
+  "homepage": "https://github.com/Mle529/google-books-search#readme"
 }
