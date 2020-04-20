@@ -6,6 +6,7 @@ import useDebounce from "../../utils/debounceHook";
 import API from "../../utils/API";
 
 function Search() {
+
     const [searchTerm, setSearchTerm] = useState("");
     const [searchResults, setSearchResults] = useState([]);
 
@@ -25,7 +26,7 @@ function Search() {
                             title: book.volumeInfo.title,
                             authors: book.volumeInfo.authors,
                             description: book.volumeInfo.description,
-                            imageURL: (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : "../../assets/images/no_image.png",
+                            imageURL: (book.volumeInfo.imageLinks) ? book.volumeInfo.imageLinks.thumbnail : "images/no_image.png",
                             link: book.volumeInfo.infoLink
                         }
                     }));
@@ -34,8 +35,8 @@ function Search() {
     }, [debouncedSearchTerm]);
 
     const handleSaveButton = param => {
-        const index = searchResults.filter(book => {
-            return book.id !== param;
+        const index = searchResults.findIndex(book => {
+            return book.id === param;
         });
         const book = searchResults[index];
 
@@ -63,7 +64,7 @@ function Search() {
             <SearchForm searchTerm={searchTerm} onChange={handleInputChange} onClick={handleFormSubmit} />
             <Results books={searchResults} handleSave={handleSaveButton} />
         </>
-    )
+    );
 }
 
 export default Search;

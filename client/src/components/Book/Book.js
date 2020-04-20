@@ -1,9 +1,10 @@
 import React from "react";
 
 function Book(props) {
+
     const book = props.book;
 
-    let style = {
+    let styles = {
         marginRight: "15px"
     }
 
